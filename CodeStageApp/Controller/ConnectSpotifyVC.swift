@@ -65,10 +65,12 @@ class ConnectSpotifyVC: UIViewController {
     @objc func connectSpotifyApp(_ sender: UIButton){
         
         
+        let storyboard = UIStoryboard(name: "Perfil", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "PerfilVC") as! UIViewController
+        self.present(controller, animated: true, completion: nil)
         
-        
-        let scope: SPTScope = [.appRemoteControl, .playlistReadPrivate]
-        SPH.connectSession(scope: scope, self)
+//        let scope: SPTScope = [.appRemoteControl, .playlistReadPrivate]
+//        SPH.connectSession(scope: scope, self)
        
     }
 
