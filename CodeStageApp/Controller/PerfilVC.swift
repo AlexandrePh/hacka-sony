@@ -16,7 +16,10 @@ class PerfilVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func backButtonAction(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
