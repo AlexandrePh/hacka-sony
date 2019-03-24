@@ -20,6 +20,8 @@
 		46C775E222458FB20063F09E /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C775E122458FB20063F09E /* Alerts.swift */; };
 		46CD28F9224574B800D55E91 /* PlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CD28F8224574B800D55E91 /* PlayerVC.swift */; };
 		46CD28FB2245764B00D55E91 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CD28FA2245764B00D55E91 /* API.swift */; };
+		8EDE68E6224775E400F8E0B4 /* Perfil.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE68E5224775E400F8E0B4 /* Perfil.storyboard */; };
+		8EDE68E8224777BD00F8E0B4 /* PerfilVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE68E7224777BD00F8E0B4 /* PerfilVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		46C775E122458FB20063F09E /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		46CD28F8224574B800D55E91 /* PlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerVC.swift; sourceTree = "<group>"; };
 		46CD28FA2245764B00D55E91 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		8EDE68E5224775E400F8E0B4 /* Perfil.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Perfil.storyboard; sourceTree = SOURCE_ROOT; };
+		8EDE68E7224777BD00F8E0B4 /* PerfilVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 				46CD28F8224574B800D55E91 /* PlayerVC.swift */,
 				465AD6B22244A1460056FEB4 /* ConnectButton.swift */,
 				46C775E122458FB20063F09E /* Alerts.swift */,
+				8EDE68E7224777BD00F8E0B4 /* PerfilVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -109,6 +114,7 @@
 		46088CD622445DEB004CC2F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8EDE68E5224775E400F8E0B4 /* Perfil.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -182,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46088CCC22445BCD004CC2F2 /* LaunchScreen.storyboard in Resources */,
+				8EDE68E6224775E400F8E0B4 /* Perfil.storyboard in Resources */,
 				46088CC922445BCD004CC2F2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,6 +209,7 @@
 				46C775E222458FB20063F09E /* Alerts.swift in Sources */,
 				46088CC222445BCC004CC2F2 /* AppDelegate.swift in Sources */,
 				46CD28FB2245764B00D55E91 /* API.swift in Sources */,
+				8EDE68E8224777BD00F8E0B4 /* PerfilVC.swift in Sources */,
 				465AD6BC2244A5750056FEB4 /* SpotifyConnection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

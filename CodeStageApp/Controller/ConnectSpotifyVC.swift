@@ -26,12 +26,12 @@ class ConnectSpotifyVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .white
         view.backgroundColor?.withAlphaComponent(0.6)
         self.view.addSubviewsUsingAutoLayout(bgImg)
         self.view.addSubviewsUsingAutoLayout(connectButton)
         layout()
-        
         
         
         
@@ -53,8 +53,14 @@ class ConnectSpotifyVC: UIViewController {
     
     
     @objc func connectSpotifyApp(_ sender: UIButton){
-        let scope: SPTScope = [.appRemoteControl, .playlistReadPrivate]
-        SPH.connectSession(scope: scope, self)
+        
+        let storyboard = UIStoryboard(name: "Perfil", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "PerfilVC") as! UIViewController
+        self.present(controller, animated: true, completion: nil)
+        
+        
+//        let scope: SPTScope = [.appRemoteControl, .playlistReadPrivate]
+//        SPH.connectSession(scope: scope, self)
        
     }
 
