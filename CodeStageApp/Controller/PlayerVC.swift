@@ -59,6 +59,7 @@ class PlayerVC: UIViewController {
         SPH.connectAppRemote(accessToken: accessToken, self)
         view.addSubviewsUsingAutoLayout(artWorkImg)
         view.addSubviewsUsingAutoLayout(pauseAndPlayButton)
+        view.addSubviewsUsingAutoLayout(likeBtt)
         layout()
         
         
@@ -74,6 +75,10 @@ class PlayerVC: UIViewController {
         pauseAndPlayButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         pauseAndPlayButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive = true
         pauseAndPlayButton.sizeToFit()
+        
+        likeBtt.leftAnchor.constraint(equalTo: pauseAndPlayButton.rightAnchor, constant: 30).isActive = true
+        likeBtt.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive = true
+        likeBtt.sizeToFit()
     }
     
     
@@ -118,14 +123,23 @@ class PlayerVC: UIViewController {
         guard let track = lastPlayerState?.track else {
             return
         }
-        API.postMusicReaction(didLike: true, name: track.name, URI: track.uri)
+        API.postMusicReaction(didLike: true, name: track.name, URI: track.uri, {
+            (uri) in
+            let i = uri
+            print(uri)
+            fatalError()
+            
+        })
         
     }
     @objc func dislikeAction(_ sender: UIButton){
         guard let track = lastPlayerState?.track else {
             return
         }
-        API.postMusicReaction(didLike: false, name: track.name, URI: track.uri)
+        API.postMusicReaction(didLike: false, name: track.name, URI: track.uri, {
+            (uri) in
+            let i = uri
+        })
     }
     
     @objc func didTapPauseOrPlay(_ button: UIButton) {

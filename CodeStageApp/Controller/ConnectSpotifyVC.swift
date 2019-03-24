@@ -31,6 +31,10 @@ class ConnectSpotifyVC: UIViewController {
         self.view.addSubviewsUsingAutoLayout(bgImg)
         self.view.addSubviewsUsingAutoLayout(connectButton)
         layout()
+        API.postMusicReaction(didLike: true, name: "weiwi", URI: "whwhue") { (uri) in
+            let i = uri
+            fatalError()
+        }
         
         
         

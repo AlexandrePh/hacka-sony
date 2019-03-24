@@ -9,9 +9,8 @@
 import Foundation
 
 class API: NSObject {
-    static func postMusicReaction(didLike:Bool,name:String,URI:String){
-        var responseJSON:[String:Any]
-        let todosEndpoint: String = "https://jsonplaceholder.typicode.com/todos"
+    static func postMusicReaction(didLike:Bool,name:String,URI:String,_ closure: @escaping (_ :String)->()  ){
+        let todosEndpoint: String = "http://f7db2dd4.ngrok.io/recommendation/"
         guard let url = URL(string: todosEndpoint) else {
             print("Error: cannot create URL")
             return
@@ -21,7 +20,9 @@ class API: NSObject {
         let postData: [String: Any] = ["didLike": didLike, "name": name, "uri": URI]
         let json: Data
         do {
-            json = try JSONSerialization.data(withJSONObject: postData, options: [])
+            json = try JSONSerialization.data(withJSONObject: postData, options: .prettyPrinted)
+            
+            
             urlRequest.httpBody = json
         } catch {
             print("Error: cannot create JSON from todo")
@@ -49,7 +50,13 @@ class API: NSObject {
                                                                             print("Could not get JSON from responseData as dictionary")
                                                                             return
                 }
-                responseJSON = receivedTodo
+                
+                guard let uri = receivedTodo["uri"] as! String? else {
+                    print(receivedTodo.description)
+                    print("vish")
+                    return
+                }
+                closure(uri)
                 print("The todo is: " + receivedTodo.description)
                 
                 guard let todoID = receivedTodo["id"] as? Int else {
@@ -63,6 +70,8 @@ class API: NSObject {
             }
         }
         task.resume()
+       
+       
     }
 
 }
