@@ -9,6 +9,41 @@
 import UIKit
 
 class PlayerVC: UIViewController {
+    private var musicName:String = "Perfume do Invisivel"{
+        didSet{
+            musicLabel.text = musicName
+        }
+    }
+    private var musicLabel:UILabel = {
+        let lbl = UILabel()
+        lbl.textAlignment = .left
+        lbl.text = "Perfume do Invisivel"//"Resgate o conteúdo exclusivo"
+        lbl.textColor = UIColor.white
+        
+        lbl.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        
+        
+        return lbl
+    }()
+    
+    private var profilePicture1:UIImageView = {
+        let imgView = UIImageView()
+        imgView.image = UIImage(named: "perfiluser")
+        return imgView
+        
+    }()
+    private var profilePicture2:UIImageView = {
+        let imgView = UIImageView()
+        imgView.image = UIImage(named: "perfiluser2")
+        return imgView
+        
+    }()
+    private var profilePicture3:UIImageView = {
+        let imgView = UIImageView()
+        imgView.image = UIImage(named: "perfiluser3")
+        return imgView
+        
+    }()
     
     private var fanLabel:UILabel = {
         let lbl = UILabel()
@@ -16,7 +51,7 @@ class PlayerVC: UIViewController {
         lbl.text = "Maiores fãs"//"Resgate o conteúdo exclusivo"
         lbl.textColor = UIColor.white
         
-        lbl.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        lbl.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         
         
         return lbl
@@ -25,7 +60,7 @@ class PlayerVC: UIViewController {
     private lazy var profile11Label:UILabel = {
         let lbl = UILabel()
         lbl.textAlignment = .left
-        lbl.text = "Nathália Silva"//"Resgate o conteúdo exclusivo"
+        lbl.text = "Melissa Silva"//"Resgate o conteúdo exclusivo"
         lbl.textColor = UIColor.white
         
         lbl.font = UIFont.systemFont(ofSize: 18, weight: .bold)
@@ -315,6 +350,11 @@ class PlayerVC: UIViewController {
         contentView.addSubviewsUsingAutoLayout(profileFrame)
         pointsRescueFrame.addSubviewsUsingAutoLayout(pointsNeededLabel)
         pointsRescueFrame.addSubviewsUsingAutoLayout(resgateConteudoLabel)
+        artWorkImg.addSubviewsUsingAutoLayout(musicLabel)
+        
+        musicLabel.leftAnchor.constraint(equalTo: artWorkImg.leftAnchor, constant: 23).isActive = true
+        musicLabel.topAnchor.constraint(equalTo: artWorkImg.topAnchor, constant: 10).isActive = true
+        musicLabel.sizeToFit()
         
        
         
@@ -355,7 +395,9 @@ class PlayerVC: UIViewController {
         profileFrame.addSubviewsUsingAutoLayout(profile31Label)
         profileFrame.addSubviewsUsingAutoLayout(profile32Label)
         profileFrame.addSubviewsUsingAutoLayout(fanLabel)
-        
+        profileFrame.addSubviewsUsingAutoLayout(profilePicture1)
+        profileFrame.addSubviewsUsingAutoLayout(profilePicture2)
+        profileFrame.addSubviewsUsingAutoLayout(profilePicture3)
         
         
         profileFrame.leftAnchor.constraint(equalTo: storyFrame.leftAnchor).isActive = true
@@ -368,8 +410,22 @@ class PlayerVC: UIViewController {
         fanLabel.sizeToFit()
         
         
+        profilePicture1.leftAnchor.constraint(equalTo: profileFrame.leftAnchor, constant: 25).isActive = true
+        profilePicture1.topAnchor.constraint(equalTo: profileFrame.topAnchor, constant: 80).isActive = true
+        profilePicture1.sizeToFit()
         
+        profilePicture2.leftAnchor.constraint(equalTo: profileFrame.leftAnchor, constant: 25).isActive = true
+        profilePicture2.topAnchor.constraint(equalTo: profileFrame.topAnchor, constant: 189).isActive = true
+        profilePicture2.sizeToFit()
+        
+        profilePicture3.leftAnchor.constraint(equalTo: profileFrame.leftAnchor, constant: 25).isActive = true
+        profilePicture3.topAnchor.constraint(equalTo: profileFrame.topAnchor, constant: 307).isActive = true
+        profilePicture3.sizeToFit()
         //PROFILE 1
+        
+        
+        
+        
         profile11Label.leftAnchor.constraint(equalTo: profileFrame.leftAnchor, constant: 124).isActive = true
         profile11Label.topAnchor.constraint(equalTo: profileFrame.topAnchor, constant: 93).isActive = true
         profile11Label.sizeToFit()
@@ -447,6 +503,7 @@ class PlayerVC: UIViewController {
         }
         
         lastPlayerState = playerState
+        musicName = playerState.track.name
         if playerState.isPaused {
             pauseAndPlayButton.setImage(UIImage(named: "playicon"), for: .normal)
         } else {

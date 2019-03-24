@@ -85,7 +85,7 @@ extension ConnectSpotifyVC: SPTSessionManagerDelegate{
         print("foi")
         SPH.session = session
         DispatchQueue.main.async {
-            self.present(PlayerVC(), animated: false, completion: nil)
+            self.present(PlayerVC(), animated: true, completion: nil)
         }
     }
     

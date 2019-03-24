@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CodeStageApp/Controller/PlayerVC.swift"
-            timestampString = "575132377.914133"
+            timestampString = "575134126.02665"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "509"
-            endingLineNumber = "509"
+            startingLineNumber = "566"
+            endingLineNumber = "566"
             landmarkName = "goToProfile(_:)"
             landmarkType = "7">
          </BreakpointContent>
