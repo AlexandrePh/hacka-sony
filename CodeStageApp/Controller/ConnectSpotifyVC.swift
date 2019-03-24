@@ -65,9 +65,6 @@ class ConnectSpotifyVC: UIViewController {
     
     @objc func connectSpotifyApp(_ sender: UIButton){
         
-        
-        
-        
         let scope: SPTScope = [.appRemoteControl, .playlistReadPrivate]
         SPH.connectSession(scope: scope, self)
        

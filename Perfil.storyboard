@@ -59,8 +59,7 @@
                                             <color key="titleColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="medalsButtonAction:" destination="MlC-VD-UWh" eventType="touchUpInside" id="Tsn-bo-vII"/>
-                                            <segue destination="G7G-dh-s9f" kind="show" id="8zv-bK-DaJ"/>
+                                            <segue destination="G7G-dh-s9f" kind="show" identifier="goToMedals" id="8zv-bK-DaJ"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meus Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2J4-St-KLH">
@@ -137,9 +136,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DaZ-Pv-3vB"/>
                     </view>
-                    <connections>
-                        <outlet property="medalsButtonAction" destination="N73-Q1-6mZ" id="Mnd-3n-wlb"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E8g-v8-YRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
