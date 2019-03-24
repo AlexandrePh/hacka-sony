@@ -78,8 +78,8 @@
 				46088CD522445DBA004CC2F2 /* Controller */,
 				46088CD622445DEB004CC2F2 /* View */,
 				465AD6B42244A2F80056FEB4 /* Supporting FIles */,
-				46088CC822445BCD004CC2F2 /* Assets.xcassets */,
 				46088CCA22445BCD004CC2F2 /* LaunchScreen.storyboard */,
+				46088CC822445BCD004CC2F2 /* Assets.xcassets */,
 				46088CCD22445BCD004CC2F2 /* Info.plist */,
 				46088CDB224468B6004CC2F2 /* CodeStageApp-Bridging-Header.h */,
 			);

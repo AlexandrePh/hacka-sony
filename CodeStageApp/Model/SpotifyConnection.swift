@@ -8,21 +8,21 @@
 
 import Foundation
 
-class SpotifyConnectionHandler:NSObject{
+class SPH:NSObject{
     
     
     static fileprivate let SpotifyClientID = "c52d33cdd5e14076b96f7a143f29b5fe"
     static fileprivate let SpotifyRedirectURI = URL(string: "spotify-ios-quick-start://spotify-login-callback")!
     
-    
+    static var session:SPTSession?
     static var appRemote: SPTAppRemote = {
         let appRemote = SPTAppRemote(configuration: configuration, logLevel: .debug)
         return appRemote
     }()
     static var configuration: SPTConfiguration = {
         let configuration = SPTConfiguration(clientID: SpotifyClientID, redirectURL: SpotifyRedirectURI)
-        configuration.tokenSwapURL = URL(string: "http://localhost:1234/swap")
-        configuration.tokenRefreshURL = URL(string: "http://localhost:1234/refresh")
+        configuration.tokenSwapURL = URL(string: "http://f7db2dd4.ngrok.io/swap/")
+        configuration.tokenRefreshURL = URL(string: "http://f7db2dd4.ngrok.io/refresh/")
         configuration.playURI = ""
         return configuration
     }()
