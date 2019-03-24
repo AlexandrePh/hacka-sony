@@ -10,6 +10,7 @@ import UIKit
 
 class ConnectSpotifyVC: UIViewController {
     
+    
     private lazy var logoImg:UIImageView = {
         let imgView = UIImageView()
         imgView.image = UIImage(named: "logominas")

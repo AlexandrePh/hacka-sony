@@ -10,12 +10,80 @@ import UIKit
 
 class PlayerVC: UIViewController {
     
+    private lazy var profile11Label:UILabel = {
+        let lbl = UILabel()
+        lbl.textAlignment = .center
+        lbl.text = "Nathália Silva"//"Resgate o conteúdo exclusivo"
+        lbl.textColor = UIColor.white
+        
+        lbl.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        
+        
+        return lbl
+    }()
+    private var profile12Label:UILabel = {
+        let lbl = UILabel()
+        lbl.text = "243"
+        lbl.textColor = UIColor.white
+        
+        lbl.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        lbl.textAlignment = .center
+        return lbl
+    }()
+    private lazy var profile21Label:UILabel = {
+        let lbl = UILabel()
+        lbl.textAlignment = .center
+        lbl.text = "Beatriz Oliveira"//"Resgate o conteúdo exclusivo"
+        lbl.textColor = UIColor.white
+        
+        lbl.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        
+        
+        return lbl
+    }()
+    private var profile22Label:UILabel = {
+        let lbl = UILabel()
+        lbl.text = "151"
+        lbl.textColor = UIColor.white
+        
+        lbl.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        lbl.textAlignment = .center
+        return lbl
+    }()
+    private lazy var profile31Label:UILabel = {
+        let lbl = UILabel()
+        lbl.textAlignment = .center
+        lbl.text = "Renata Fernandez"//"Resgate o conteúdo exclusivo"
+        lbl.textColor = UIColor.white
+        
+        lbl.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        
+        
+        return lbl
+    }()
+    private var profile32Label:UILabel = {
+        let lbl = UILabel()
+        lbl.text = "89"
+        lbl.textColor = UIColor.white
+        
+        lbl.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        lbl.textAlignment = .center
+        return lbl
+    }()
+    
+    private var profileFrame:UIView = {
+        let view = UIView()
+        view.layer.backgroundColor = UIColor.lipstick.cgColor
+        view.layer.cornerRadius = 15
+        
+        return view
+    }()
     private var musicas:[(String,String)] = [
     ("spotify:track:31kZMqAJ4QZFQZnQEhfWL7","\"O rótulo da MPB ficou limitado. Ele é bem abrangente, afinal é música popular brasileira. E me considero isso. Quando vou fazer um som, me alimento do que gosto e, como muitos outros da minha geração, me alimento não só de coisas específicas.\" "),
     ("spotify:track:4QJS99QHnbS3qc8htb5d7r","\"Fiquei absolutamente embasbacada quando assisti ao concerto Impermanência, da criadora de óperas contemporâneas Meredith Monk. Foi um rito de passagem para mim. O jeito que Meredith explora a voz, rompendo a barreira entre canto e palavra, me comoveu e fortaleceu.\" ")
     
     ]
-    private var currentMusicCounter = 1
+    private var currentMusicCounter = 0
     
     
     private lazy var resgateConteudoLabel:UILabel = {
@@ -161,20 +229,20 @@ class PlayerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        SPH.currentVC = self
         guard let accessToken = SPH.session?.accessToken else{
             dismiss(animated: false, completion: nil)
             return
         }
         
+        
         SPH.connectAppRemote(accessToken: accessToken, self)
         
         layout()
     
-        //SPH.appRemote.playerAPI?.enqueueTrackUri(musicas[0].0, callback: nil)
-        SPH.appRemote.playerAPI?.skip(toNext: nil)
-        SPH.appRemote.playerAPI?.play(musicas[0].0, callback: nil)
+       
         
-        self.fetchPlayerState()
+       
         
         
         
@@ -232,6 +300,7 @@ class PlayerVC: UIViewController {
         contentView.addSubviewsUsingAutoLayout(artWorkImg)
         contentView.addSubviewsUsingAutoLayout(storyFrame)
         contentView.addSubviewsUsingAutoLayout(pointsRescueFrame)
+        contentView.addSubviewsUsingAutoLayout(profileFrame)
         pointsRescueFrame.addSubviewsUsingAutoLayout(pointsNeededLabel)
         pointsRescueFrame.addSubviewsUsingAutoLayout(resgateConteudoLabel)
         
@@ -267,6 +336,45 @@ class PlayerVC: UIViewController {
         //storyLabel.bottomAnchor.constraint(equalTo: storyFrame.bottomAnchor, constant: -30).isActive = true
         storyLabel.sizeToFit()
         
+        profileFrame.addSubviewsUsingAutoLayout(profile11Label)
+        profileFrame.addSubviewsUsingAutoLayout(profile12Label)
+        profileFrame.addSubviewsUsingAutoLayout(profile21Label)
+        profileFrame.addSubviewsUsingAutoLayout(profile22Label)
+        profileFrame.addSubviewsUsingAutoLayout(profile31Label)
+        profileFrame.addSubviewsUsingAutoLayout(profile32Label)
+        
+        profileFrame.leftAnchor.constraint(equalTo: storyFrame.leftAnchor).isActive = true
+        profileFrame.rightAnchor.constraint(equalTo: storyFrame.rightAnchor).isActive = true
+        profileFrame.topAnchor.constraint(equalTo: storyFrame.bottomAnchor, constant: 25).isActive = true
+        profileFrame.sizeAnchors(width: nil, height: 432)
+        //PROFILE 1
+        profile11Label.leftAnchor.constraint(equalTo: profileFrame.leftAnchor, constant: 124).isActive = true
+        profile11Label.topAnchor.constraint(equalTo: profileFrame.topAnchor, constant: 93).isActive = true
+        profile11Label.sizeToFit()
+        
+        profile12Label.leftAnchor.constraint(equalTo: profileFrame.leftAnchor, constant: 124).isActive = true
+        profile12Label.topAnchor.constraint(equalTo: profile11Label.bottomAnchor, constant: 3).isActive = true
+        profile12Label.sizeToFit()
+        
+        //PROFILE 2
+        profile21Label.leftAnchor.constraint(equalTo: profileFrame.leftAnchor, constant: 124).isActive = true
+        profile21Label.topAnchor.constraint(equalTo: profileFrame.topAnchor, constant: 203).isActive = true
+        profile21Label.sizeToFit()
+        
+        profile22Label.leftAnchor.constraint(equalTo: profileFrame.leftAnchor, constant: 124).isActive = true
+        profile22Label.topAnchor.constraint(equalTo: profile21Label.bottomAnchor, constant: 3).isActive = true
+        profile22Label.sizeToFit()
+        
+        //PROFILE 2
+        profile31Label.leftAnchor.constraint(equalTo: profileFrame.leftAnchor, constant: 124).isActive = true
+        profile31Label.topAnchor.constraint(equalTo: profileFrame.topAnchor, constant: 203).isActive = true
+        profile31Label.sizeToFit()
+        
+        profile32Label.leftAnchor.constraint(equalTo: profileFrame.leftAnchor, constant: 329).isActive = true
+        profile32Label.topAnchor.constraint(equalTo: profile31Label.bottomAnchor, constant: 3).isActive = true
+        profile32Label.sizeToFit()
+        
+       
         pointsRescueFrame.topAnchor.constraint(equalTo: storyFrame.bottomAnchor, constant: 25).isActive = true
         pointsRescueFrame.leftAnchor.constraint(equalTo: storyFrame.leftAnchor).isActive = true
         pointsRescueFrame.rightAnchor.constraint(equalTo: storyFrame.rightAnchor).isActive = true
@@ -330,14 +438,21 @@ class PlayerVC: UIViewController {
         guard let track = lastPlayerState?.track else {
             return
         }
+        currentMusicCounter+=1
         let uri = musicas[currentMusicCounter].0
+        print(uri)
         let descrição = musicas[currentMusicCounter].1
         self.storyLabel.attributedText = attributedText(descrição)
-        currentMusicCounter+=1
+        
         DispatchQueue.main.async {
-            SPH.appRemote.playerAPI?.enqueueTrackUri(uri, callback: nil)
-            SPH.appRemote.playerAPI?.skip(toNext: nil)
-            self.fetchPlayerState()
+            SPH.appRemote.playerAPI?.enqueueTrackUri(uri, callback: { (self, error) in
+                print(error)
+                SPH.appRemote.playerAPI?.skip(toNext: { (self, error) in
+                    
+                    SPH.currentVC?.fetchPlayerState()
+                })
+            })
+            
         }
         
     }

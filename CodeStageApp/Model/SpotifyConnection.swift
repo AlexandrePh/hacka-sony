@@ -10,7 +10,7 @@ import Foundation
 
 class SPH:NSObject{
     
-    
+    static var currentVC:PlayerVC?
     static fileprivate let SpotifyClientID = "c52d33cdd5e14076b96f7a143f29b5fe"
     static fileprivate let SpotifyRedirectURI = URL(string: "spotify-ios-quick-start://spotify-login-callback")!
     
@@ -23,7 +23,7 @@ class SPH:NSObject{
         let configuration = SPTConfiguration(clientID: SpotifyClientID, redirectURL: SpotifyRedirectURI)
         configuration.tokenSwapURL = URL(string: "http://f7db2dd4.ngrok.io/swap/")
         configuration.tokenRefreshURL = URL(string: "http://f7db2dd4.ngrok.io/refresh/")
-        configuration.playURI = ""
+        configuration.playURI = "spotify:track:31kZMqAJ4QZFQZnQEhfWL7"
         //TODO
         return configuration
     }()
