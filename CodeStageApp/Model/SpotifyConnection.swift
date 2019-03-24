@@ -24,6 +24,7 @@ class SPH:NSObject{
         configuration.tokenSwapURL = URL(string: "http://f7db2dd4.ngrok.io/swap/")
         configuration.tokenRefreshURL = URL(string: "http://f7db2dd4.ngrok.io/refresh/")
         configuration.playURI = ""
+        //TODO
         return configuration
     }()
     static var sessionManager: SPTSessionManager = {

@@ -51,11 +51,12 @@ class API: NSObject {
                                                                             return
                 }
                 
-                guard let uri = receivedTodo["uri"] as! String? else {
-                    print(receivedTodo.description)
-                    print("vish")
-                    return
-                }
+//                guard let uri = receivedTodo["uri"] as! String? else {
+//                    print(receivedTodo.description)
+//                    print("vish")
+//                    return
+//                }
+                let uri = "" //TODO
                 closure(uri)
                 print("The todo is: " + receivedTodo.description)
                 
