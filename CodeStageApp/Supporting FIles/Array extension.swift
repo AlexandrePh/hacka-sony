@@ -21,4 +21,8 @@ extension UIColor {
         return UIColor(red: 208.0 / 255.0, green: 44.0 / 255.0, blue: 101.0 / 255.0, alpha: 1.0)
     }
     
+    @nonobjc class var lightlipstick: UIColor {
+        return #colorLiteral(red: 0.8549019608, green: 0.5568627451, blue: 0.6352941176, alpha: 1)
+    }
+    
 }

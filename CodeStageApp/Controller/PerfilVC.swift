@@ -10,6 +10,10 @@ import UIKit
 
 class PerfilVC: UIViewController {
 
+    
+    @IBAction func medalsButtonAction(_ sender: Any) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -109,7 +109,7 @@ class PlayerVC: UIViewController {
     }()
     private var pointsRescueFrame:UIView = {
         let view = UIView()
-        view.layer.backgroundColor = UIColor.lipstick.cgColor
+        view.layer.backgroundColor = UIColor.lightlipstick.cgColor
         view.layer.cornerRadius = 15
         
         return view

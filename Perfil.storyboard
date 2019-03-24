@@ -50,34 +50,39 @@
                                 <rect key="frame" x="94" y="102" width="187" height="187"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="iKf-Yo-cpr" userLabel="oi">
-                                <rect key="frame" x="85" y="369.5" width="124" height="167.5"/>
+                                <rect key="frame" x="85" y="357" width="124" height="180"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medalhas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcf-TC-HHv">
-                                        <rect key="frame" x="0.0" y="0.0" width="124" height="21.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N73-Q1-6mZ" userLabel="Medalhas">
+                                        <rect key="frame" x="0.0" y="0.0" width="124" height="34"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <state key="normal" title="Medalhas">
+                                            <color key="titleColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="medalsButtonAction:" destination="MlC-VD-UWh" eventType="touchUpInside" id="Tsn-bo-vII"/>
+                                            <segue destination="G7G-dh-s9f" kind="show" id="8zv-bK-DaJ"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meus Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2J4-St-KLH">
-                                        <rect key="frame" x="0.0" y="36.5" width="124" height="21.5"/>
+                                        <rect key="frame" x="0.0" y="49" width="124" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recompensas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vu-or-Qi2">
-                                        <rect key="frame" x="0.0" y="73" width="124" height="21.5"/>
+                                        <rect key="frame" x="0.0" y="85.5" width="124" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configurações" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REi-xY-ucJ">
-                                        <rect key="frame" x="0.0" y="109.5" width="124" height="21.5"/>
+                                        <rect key="frame" x="0.0" y="122" width="124" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sair" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0K-7U-haw">
-                                        <rect key="frame" x="0.0" y="146" width="124" height="21.5"/>
+                                        <rect key="frame" x="0.0" y="158.5" width="124" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -132,14 +137,43 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DaZ-Pv-3vB"/>
                     </view>
+                    <connections>
+                        <outlet property="medalsButtonAction" destination="N73-Q1-6mZ" id="Mnd-3n-wlb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E8g-v8-YRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5.5999999999999996" y="96.7016491754123"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="mk2-93-I1l">
+            <objects>
+                <viewController id="G7G-dh-s9f" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V13-SP-Zlo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="8.medalhas V4" translatesAutoresizingMaskIntoConstraints="NO" id="jaZ-QC-JtE">
+                                <rect key="frame" x="0.0" y="20" width="375" height="812"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NIU-m8-aji" firstAttribute="trailing" secondItem="jaZ-QC-JtE" secondAttribute="trailing" id="KW9-qj-R6g"/>
+                            <constraint firstItem="jaZ-QC-JtE" firstAttribute="top" secondItem="NIU-m8-aji" secondAttribute="top" id="ijj-xS-EjZ"/>
+                            <constraint firstItem="jaZ-QC-JtE" firstAttribute="leading" secondItem="NIU-m8-aji" secondAttribute="leading" id="yMF-5S-RhP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NIU-m8-aji"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p5a-34-dRI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="716" y="97"/>
+        </scene>
     </scenes>
     <resources>
         <image name=" favourite" width="48" height="46"/>
+        <image name="8.medalhas V4" width="375" height="812"/>
         <image name="backicon" width="11" height="19"/>
         <image name="forma-modal" width="375" height="253"/>
         <image name="perfiluser" width="187" height="187"/>
