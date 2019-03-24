@@ -10,7 +10,11 @@ import UIKit
 
 class ConnectSpotifyVC: UIViewController {
     
-      
+    private lazy var logoImg:UIImageView = {
+        let imgView = UIImageView()
+        imgView.image = UIImage(named: "logominas")
+        return imgView
+    }()
     private lazy var connectButton:UIButton = {
         let btt = UIButton()
         btt.setImage(UIImage(named: "botOLogin"), for: .normal)
@@ -31,6 +35,7 @@ class ConnectSpotifyVC: UIViewController {
         view.backgroundColor?.withAlphaComponent(0.6)
         self.view.addSubviewsUsingAutoLayout(bgImg)
         self.view.addSubviewsUsingAutoLayout(connectButton)
+        self.view.addSubviewsUsingAutoLayout(logoImg)
         layout()
         
         
@@ -44,23 +49,26 @@ class ConnectSpotifyVC: UIViewController {
         bgImg.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         bgImg.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         bgImg.sizeAnchors(width: width, height: height, priority: .required)
+        
+        
         connectButton.centerXAnchor.constrain(to: view.centerXAnchor).isActive = true
         connectButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80).isActive = true
         connectButton.sizeToFit()
         
+        logoImg.bottomAnchor.constraint(equalTo: connectButton.topAnchor, constant: -30).isActive = true
+        logoImg.centerXAnchor.constraint(equalTo: connectButton.centerXAnchor).isActive = true
+        logoImg.sizeToFit()
         
     }
     
     
     @objc func connectSpotifyApp(_ sender: UIButton){
         
-        let storyboard = UIStoryboard(name: "Perfil", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "PerfilVC") as! UIViewController
-        self.present(controller, animated: true, completion: nil)
         
         
-//        let scope: SPTScope = [.appRemoteControl, .playlistReadPrivate]
-//        SPH.connectSession(scope: scope, self)
+        
+        let scope: SPTScope = [.appRemoteControl, .playlistReadPrivate]
+        SPH.connectSession(scope: scope, self)
        
     }
 
