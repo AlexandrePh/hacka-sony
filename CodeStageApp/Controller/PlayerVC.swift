@@ -10,9 +10,21 @@ import UIKit
 
 class PlayerVC: UIViewController {
     
+    private var fanLabel:UILabel = {
+        let lbl = UILabel()
+        lbl.textAlignment = .left
+        lbl.text = "Maiores fãs"//"Resgate o conteúdo exclusivo"
+        lbl.textColor = UIColor.white
+        
+        lbl.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        
+        
+        return lbl
+    }()
+    
     private lazy var profile11Label:UILabel = {
         let lbl = UILabel()
-        lbl.textAlignment = .center
+        lbl.textAlignment = .left
         lbl.text = "Nathália Silva"//"Resgate o conteúdo exclusivo"
         lbl.textColor = UIColor.white
         
@@ -27,12 +39,12 @@ class PlayerVC: UIViewController {
         lbl.textColor = UIColor.white
         
         lbl.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-        lbl.textAlignment = .center
+        lbl.textAlignment = .left
         return lbl
     }()
     private lazy var profile21Label:UILabel = {
         let lbl = UILabel()
-        lbl.textAlignment = .center
+        lbl.textAlignment = .left
         lbl.text = "Beatriz Oliveira"//"Resgate o conteúdo exclusivo"
         lbl.textColor = UIColor.white
         
@@ -47,12 +59,12 @@ class PlayerVC: UIViewController {
         lbl.textColor = UIColor.white
         
         lbl.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-        lbl.textAlignment = .center
+        lbl.textAlignment = .left
         return lbl
     }()
     private lazy var profile31Label:UILabel = {
         let lbl = UILabel()
-        lbl.textAlignment = .center
+        lbl.textAlignment = .left
         lbl.text = "Renata Fernandez"//"Resgate o conteúdo exclusivo"
         lbl.textColor = UIColor.white
         
@@ -67,7 +79,7 @@ class PlayerVC: UIViewController {
         lbl.textColor = UIColor.white
         
         lbl.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-        lbl.textAlignment = .center
+        lbl.textAlignment = .left
         return lbl
     }()
     
@@ -342,11 +354,21 @@ class PlayerVC: UIViewController {
         profileFrame.addSubviewsUsingAutoLayout(profile22Label)
         profileFrame.addSubviewsUsingAutoLayout(profile31Label)
         profileFrame.addSubviewsUsingAutoLayout(profile32Label)
+        profileFrame.addSubviewsUsingAutoLayout(fanLabel)
+        
+        
         
         profileFrame.leftAnchor.constraint(equalTo: storyFrame.leftAnchor).isActive = true
         profileFrame.rightAnchor.constraint(equalTo: storyFrame.rightAnchor).isActive = true
         profileFrame.topAnchor.constraint(equalTo: storyFrame.bottomAnchor, constant: 25).isActive = true
         profileFrame.sizeAnchors(width: nil, height: 432)
+        
+        fanLabel.leftAnchor.constraint(equalTo: profileFrame.leftAnchor, constant: 33).isActive = true
+        fanLabel.topAnchor.constraint(equalTo: profileFrame.topAnchor, constant: 30).isActive = true
+        fanLabel.sizeToFit()
+        
+        
+        
         //PROFILE 1
         profile11Label.leftAnchor.constraint(equalTo: profileFrame.leftAnchor, constant: 124).isActive = true
         profile11Label.topAnchor.constraint(equalTo: profileFrame.topAnchor, constant: 93).isActive = true
@@ -367,10 +389,10 @@ class PlayerVC: UIViewController {
         
         //PROFILE 2
         profile31Label.leftAnchor.constraint(equalTo: profileFrame.leftAnchor, constant: 124).isActive = true
-        profile31Label.topAnchor.constraint(equalTo: profileFrame.topAnchor, constant: 203).isActive = true
+        profile31Label.topAnchor.constraint(equalTo: profileFrame.topAnchor, constant: 329).isActive = true
         profile31Label.sizeToFit()
         
-        profile32Label.leftAnchor.constraint(equalTo: profileFrame.leftAnchor, constant: 329).isActive = true
+        profile32Label.leftAnchor.constraint(equalTo: profileFrame.leftAnchor, constant: 124).isActive = true
         profile32Label.topAnchor.constraint(equalTo: profile31Label.bottomAnchor, constant: 3).isActive = true
         profile32Label.sizeToFit()
         
@@ -512,7 +534,21 @@ extension PlayerVC: SPTAppRemoteDelegate{
                 print("Error subscribing to player state:" + error.localizedDescription)
             }
         })
-        fetchPlayerState()
+        let uri = musicas[currentMusicCounter].0
+        print(uri)
+        let descrição = musicas[currentMusicCounter].1
+        self.storyLabel.attributedText = attributedText(descrição)
+        
+        DispatchQueue.main.async {
+            SPH.appRemote.playerAPI?.enqueueTrackUri(uri, callback: { (self, error) in
+                print(error)
+                SPH.appRemote.playerAPI?.skip(toNext: { (self, error) in
+                    
+                    SPH.currentVC?.fetchPlayerState()
+                })
+            })
+            
+        }
         
     }
     
